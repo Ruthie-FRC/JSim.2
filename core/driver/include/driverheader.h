@@ -184,7 +184,12 @@ int c_rsSetBodyLinearVelocity(uint64_t world_handle, int body_index,
 
 /**
  * @brief Set a rigid body's orientation.
- *
+ * @param world_handle Target world handle.
+ * @param body_index Zero-based body index.
+ * @param qw Quaternion w component.
+ * @param qx Quaternion x component.
+ * @param qy Quaternion y component.
+ * @param qz Quaternion z component.
  * @return 0 on success, non-zero on error.
  */
 int c_rsSetBodyOrientation(uint64_t world_handle, int body_index,
@@ -192,24 +197,12 @@ int c_rsSetBodyOrientation(uint64_t world_handle, int body_index,
 
 /**
  * @brief Read a rigid body's orientation quaternion.
- *
- * @return 0 on success, non-zero on error.
- */
-int c_rsGetBodyOrientation(uint64_t world_handle, int body_index,
-                           double* out_qw, double* out_qx,
-                           double* out_qy, double* out_qz);
-
-/**
- * @brief Set a rigid body's orientation.
- *
- * @return 0 on success, non-zero on error.
- */
-int c_rsSetBodyOrientation(uint64_t world_handle, int body_index,
-                           double qw, double qx, double qy, double qz);
-
-/**
- * @brief Read a rigid body's orientation quaternion.
- *
+ * @param world_handle Target world handle.
+ * @param body_index Zero-based body index.
+ * @param out_qw Output pointer for quaternion w component.
+ * @param out_qx Output pointer for quaternion x component.
+ * @param out_qy Output pointer for quaternion y component.
+ * @param out_qz Output pointer for quaternion z component.
  * @return 0 on success, non-zero on error.
  */
 int c_rsGetBodyOrientation(uint64_t world_handle, int body_index,
@@ -220,7 +213,7 @@ int c_rsGetBodyOrientation(uint64_t world_handle, int body_index,
  * @brief Enables or disables gravity for a single body.
  * @param world_handle Target world handle.
  * @param body_index Zero-based body index.
- * @param enabled Non-zero to enable gravity for this body, zero to disable.
+ * @param enabled Non-zero to enable gravity for this body; zero to disable.
  * @return 0 on success, non-zero on failure.
  */
 int c_rsSetBodyGravityEnabled(uint64_t world_handle, int body_index,
